@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Project standards | BNA Mechanics </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+  <style>
+  :root {
+    /* Body fonts */
+    --fonts-body: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
+    /* Headline fonts */
+    --fonts-headlines: "Dharma Gothic E";
+    /* Primary theme color */
+    --primary-color: #00263E;
+    /* Primary theme text color */
+    --primary-text-color: #8B8A8D;
+    /* Primary theme link color */
+    --primary-link-color: #009EDB;
+    /* Secondary color: the background body color */
+    --secondary-color: #fcfaf6;
+    --secondary-text-color: #4D4D4F;
+    /* Highlight text color of table of content */
+    --toc-highlight-text-color: #D71920;
+  }
+</style>
+
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:Light,400,500,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="https://peopleforbikes.github.io/juice.css">
+</head>
+
+<body>
+  
+<header class="box-shadow">
+    
+
+<a href="https:&#x2F;&#x2F;peopleforbikes.github.io&#x2F;">
+    <div class="logo">
+        <img src="https://peopleforbikes.github.io/BNA Mechanics logo-small.svg" alt="logo">
+        BNA Mechanics
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;peopleforbikes.github.io&#x2F;code-of-conduct&#x2F;">Code of conduct</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;peopleforbikes.github.io&#x2F;contributing&#x2F;">Contributing</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;peopleforbikes.github.io&#x2F;project-standards&#x2F;">Project standards</a>
+    
+    <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;peopleforbikes.github.io&#x2F;language-tooling-guidelines&#x2F;">Guidelines</a>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;PeopleForBikes">Github ↗</a>
+        
+    
+</nav>
+
+</header>
+
+
+  <main id="main">
+    
+    
+    
+    
+    
+    <div class="toc">
+      <div class="toc-sticky">
+        
+        <div class="toc-item">
+          <a class="subtext" href="https://peopleforbikes.github.io/project-standards/#project-standards">Project standards</a>
+        </div>
+        
+        
+        <div class="toc-item-child">
+          <a class="subtext" href="https://peopleforbikes.github.io/project-standards/#general-recommendations"><small>- General recommendations</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+          <a class="subtext" href="https://peopleforbikes.github.io/project-standards/#continuous-integration"><small>- Continuous Integration</small></a>
+        </div>
+        
+        <div class="toc-item-child">
+          <a class="subtext" href="https://peopleforbikes.github.io/project-standards/#administrative-tasks"><small>- Administrative tasks</small></a>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+
+    <div class="content text">
+      
+<div class="heading-text"></div>
+<h1 id="project-standards">Project standards</h1>
+<h2 id="general-recommendations">General recommendations</h2>
+<ul>
+<li>Projects must provide a way to build artifacts using standard tools (i.e. no
+custom scripts made for a specific machine/environment)
+<ul>
+<li>a package or binary depending on the language</li>
+<li>a docker image</li>
+</ul>
+</li>
+<li>Projects must include a Changelog following the
+<a href="https://keepachangelog.com/en/1.0.0">Keep a Changelog</a> recommendation</li>
+<li>Project must adhere to <a href="https://semver.org/">Semantic Versioning</a>
+<ul>
+<li>Or <a href="https://calver.org/">Calendar Versioning</a> if it makes more sense.</li>
+</ul>
+</li>
+<li>Projects must use Issues and Pull Request templates</li>
+<li>Projects must use meaningful labels</li>
+<li>Projects must be documented</li>
+<li>Projects must automate all their maintenance tasks
+<ul>
+<li>Must ensure reproducibility</li>
+<li>A Makefile, justfile or a package.json at the root of the project is a good
+example of how to automate maintenance tasks.</li>
+<li>The commands must be backed by scripts (instead of being written inline).</li>
+</ul>
+</li>
+<li>Start designing API specification before implementation (i.e. design first
+approach)
+<ul>
+<li>OpenAPI 3+ specification</li>
+<li>Zalando provides very good
+<a href="https://opensource.zalando.com/restful-api-guidelines/">RESTful API Guidelines</a>
+worth following</li>
+</ul>
+</li>
+</ul>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<p>The CI rules:</p>
+<ul>
+<li>Projects must comply with CI task requirements.</li>
+<li>Developers must be able to run the tasks locally.</li>
+<li>The CI acts as the source of truth.</li>
+</ul>
+<p>The <code>PeopleForBikes/.github</code> repository contains starter workflows that should
+be used when creating a project.</p>
+<h3 id="required-tasks">Required tasks</h3>
+<ul>
+<li>Formatter</li>
+<li>Linters
+<ul>
+<li>Code</li>
+<li>Docs</li>
+</ul>
+</li>
+<li>Static analyzers</li>
+<li>Documentation</li>
+<li>Unit tests</li>
+<li>Feature tests
+<ul>
+<li>Try to cover 100% of use cases
+<ul>
+<li>This is more important than the unit test coverage</li>
+<li>It will end up increasing unit test coverage anyway</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Integration tests
+<ul>
+<li>Can use network, database, file system, storage, etc.</li>
+<li><strong>Are NOT included in the code coverage</strong></li>
+</ul>
+</li>
+<li>Coverage
+<ul>
+<li>Reaching 100% coverage is not the end goal</li>
+<li>Must never regress</li>
+<li>Think about your teammates who worked on increasing this coverage</li>
+<li>Use online services like <a href="https://coveralls.io">coveralls</a> or
+<a href="https://codecov.io">codecov</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="administrative-tasks">Administrative tasks</h2>
+<h3 id="create-a-new-github-repository">Create a new GitHub repository</h3>
+<blockquote>
+<p><strong>Remark: this operation can only be performed by administrators.</strong></p>
+</blockquote>
+<p>We recommend using using the <a href="https://cli.github.com/">GitHub CLI</a> in general as
+we find it very convenient, but even if it is not your cup of tea, it should at
+least be used to create new repositories with the right parameters from the get
+go.</p>
+<p>Start by assigning the repository name to the <code>PFB_REPO</code> variable:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="font-weight:bold;color:#a71d5d;">export </span><span>PFB_REPO</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">my-project
+</span></code></pre>
+<p>Create the repository:</p>
+<blockquote>
+<p><strong>Remark: adjust the <code>--description</code> and <code>--gitignore</code> flags with the
+appropriate values.</strong></p>
+</blockquote>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>gh repo create \
+</span><span>  </span><span style="color:#183691;">&quot;PeopleForBikes/${</span><span>PFB_REPO</span><span style="color:#183691;">}&quot; </span><span>\
+</span><span>  --public \
+</span><span>  --clone \
+</span><span>  --license MIT \
+</span><span>  --description </span><span style="color:#183691;">&quot;Describe my project in one line.&quot; </span><span>\
+</span><span>  --gitignore Rust
+</span><span style="color:#62a35c;">cd </span><span style="color:#183691;">&quot;${</span><span>PFB_REPO</span><span style="color:#183691;">}&quot;
+</span></code></pre>
+<p>After that, import the <code>.github</code> directory:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>DOT_GITHUB_TMP</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">&quot;$(</span><span>mktemp -d</span><span style="color:#183691;">)/.github&quot;
+</span><span>git clone --depth</span><span style="font-weight:bold;color:#a71d5d;">=</span><span>1 git@github.com:PeopleForBikes/.github </span><span style="color:#183691;">&quot;${</span><span>DOT_GITHUB_TMP</span><span style="color:#183691;">}&quot;
+</span><span>rsync -vrlp --exclude </span><span style="color:#183691;">&#39;.git&#39; &quot;${</span><span>DOT_GITHUB_TMP</span><span style="color:#183691;">}&quot;</span><span> .
+</span></code></pre>
+<blockquote>
+<p><strong>Remark: check the <code>.github/workflows</code> folder and remove the workflows that
+do not pertain to the project.</strong></p>
+</blockquote>
+<p>Then apply the labels with <a href="https://github.com/rgreinho/labelr-rs">labelr</a>:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>labelr --organization PeopleForBikes --sync .github/labels.yml
+</span></code></pre>
+<p>And finally submit the changes:</p>
+<pre data-lang="bash" style="background-color:#ffffff;color:#323232;" class="language-bash "><code class="language-bash" data-lang="bash"><span>git add .
+</span><span>git commit -am </span><span style="color:#183691;">&quot;Initial import&quot;</span><span> -m </span><span style="color:#183691;">&quot;Imports project scaffolding.&quot;
+</span><span>git push
+</span></code></pre>
+
+
+    </div>
+
+    
+    
+  </main>
+
+  
+<footer>
+  <small class="subtext">
+    Created by <a href="https://www.peopleforbikes.org/">PeopleForBikes</a>
+  </small>
+</footer>
+
+</body>
+<script>
+  function highlightNav(heading) {
+    let pathname = location.pathname;
+    document.querySelectorAll(".toc a").forEach((item) => {
+      item.classList.remove("active");
+    });
+    document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+  }
+
+  let currentHeading = "";
+  window.onscroll = function () {
+    let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+    let elementArr = [];
+
+    h.forEach(item => {
+      if (item.id !== "") {
+        elementArr[item.id] = item.getBoundingClientRect().top;
+      }
+    });
+    elementArr.sort();
+    for (let key in elementArr) {
+      if (!elementArr.hasOwnProperty(key)) {
+        continue;
+      }
+      if (elementArr[key] > 0 && elementArr[key] < 300) {
+        if (currentHeading !== key) {
+          highlightNav(key);
+          currentHeading = key;
+        }
+        break;
+      }
+    }
+  }
+</script>
+
+</html>
